@@ -63,7 +63,7 @@ class _Firebase_CRUDState extends State<Firebase_CRUD> {
   //   );
   // }
 
-  Future<void> _update([DocumentSnapshot? documentSnapshot]) async {
+  Future<void> _update(DocumentSnapshot? documentSnapshot) async {
     if (documentSnapshot != null) {
       _pnameController.text = documentSnapshot['name'];
       _priceController.text = documentSnapshot['price'].toString();
@@ -188,51 +188,6 @@ class _Firebase_CRUDState extends State<Firebase_CRUD> {
         content: Text('You have successfully deleted a product')));
   }
 
-  // Future<void> _update([DocumentSnapshot? documentSnapshot]) async{
-  //   if(documentSnapshot != null){
-  //     _pnameController.text=documentSnapshot['name'];
-  //     _priceController.text=documentSnapshot['price'].toString();
-  //   }
-  //   await showModalBottomSheet(
-  //       isScrollControlled: true,
-  //       context: context,
-  //       builder: (BuildContext context){
-  //         return Padding(
-  //           padding: EdgeInsets.only(top: 20,left: 20,right: 20,),
-  //           child: Column(
-  //             children: [
-  //               TextFormField(
-  //                 controller: _pnameController,
-  //                 decoration: InputDecoration(
-  //                     label: Text('Name')
-  //                 ),
-  //               ),
-  //               TextFormField(
-  //                 keyboardType: const TextInputType.numberWithOptions(decimal: true),
-  //                 controller: _priceController,
-  //                 decoration: InputDecoration(
-  //                     label: Text('Price')
-  //                 ),
-  //               ),
-  //               SizedBox(height: 50,),
-  //               ElevatedButton(
-  //                   onPressed: () async{
-  //                     final String name=_pnameController.text;
-  //                     final double? price = double.parse(_priceController.text);
-  //                     if(price != null){
-  //                       await _product.doc(documentSnapshot!.id).update({'name':name,'price':price});
-  //                       _pnameController.text='';
-  //                       _priceController.text='';
-  //                     }
-  //                   },
-  //                   child: Text('UPDATE')
-  //               )
-  //             ],
-  //           ),
-  //         );
-  //       }
-  //   );
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -297,7 +252,7 @@ class _Firebase_CRUDState extends State<Firebase_CRUD> {
                               children: [
                                 IconButton(
                                     onPressed: () {
-                                      _update();
+                                      _update(documentSnapshot);
                                     },
                                     icon: Icon(
                                       Icons.edit,
